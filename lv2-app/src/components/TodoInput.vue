@@ -22,7 +22,7 @@ export default {
   props: {
     addTodo: {
       type: Function,
-    }
+    },
   },
   methods: {
     submitInput() {

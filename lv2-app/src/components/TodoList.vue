@@ -1,18 +1,27 @@
 <template>
-  <ul class="todo-list">
-    <li 
-      v-for="(todo, idx) in todos" 
-      class="shadow"
-      :key="idx"
-      >
-      {{ todo }}
-      <span 
-        class="removeBtn"
-        @click="removeTodo(idx)">
-        X
-      </span>
-    </li>
-  </ul>
+  <div class="todo-list">
+    <transition-group name="list" tag="ul">
+      <li 
+        class="shadow"
+        v-for="(todo, idx) in todos" :key="todo">
+          <span
+          class="checkBtn"
+          :class="{ checkBtnCompleted: todo.done }"
+          @click="toggleDoneTodo(idx)">
+          V
+        </span>
+        <span
+          :class="{ textCompleted: todo.done }">
+          {{ todo.text }}
+        </span>
+        <span 
+          class="removeBtn"
+          @click="removeTodo(idx)">
+          X
+        </span>
+      </li>
+    </transition-group>
+  </div>
 </template>
 
 <script>
@@ -22,6 +31,9 @@ export default {
       type: Array,
     },
     removeTodo: {
+      type: Function,
+    },
+    toggleDoneTodo: {
       type: Function,
     }
   },
@@ -71,6 +83,15 @@ li {
 
 span {
   cursor: pointer;
+}
+
+.list-enter-active, .list-leave-active {
+  transition: all .5s;
+}
+
+.list-enter, .list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 </style>
