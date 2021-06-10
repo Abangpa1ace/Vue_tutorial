@@ -26,16 +26,10 @@
 
 <script>
 export default {
-  props: {
-    todos: {
-      type: Array,
-    },
-    removeTodo: {
-      type: Function,
-    },
-    toggleDoneTodo: {
-      type: Function,
-    }
+  props: {    
+    todos: Array,
+    removeTodo: Function,
+    toggleDoneTodo: Function,
   },
 }
 </script>
