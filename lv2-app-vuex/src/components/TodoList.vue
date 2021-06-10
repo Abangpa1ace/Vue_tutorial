@@ -26,11 +26,14 @@
 
 <script>
 export default {
-  props: {    
-    todos: Array,
-    removeTodo: Function,
-    toggleDoneTodo: Function,
-  },
+  methods: {
+    toggleDoneTodo(idx) {
+      this.$store.commit("toggleDoneTodo", idx)
+    },
+    removeTodo(idx) {
+      this.$store.commit("removeTodo", idx)
+    }
+  }
 }
 </script>
 

@@ -5,9 +5,7 @@
     <TodoInput></TodoInput>
     <TodoList :toggleDoneTodo="toggleDoneTodo" :removeTodo="removeTodo">
     </TodoList>
-    <TodoFooter
-      :clearTodos="clearTodos">
-    </TodoFooter>
+    <TodoFooter></TodoFooter>
   </div>
 </template>
 
@@ -35,33 +33,6 @@ export default {
   watch: {
     todos: function() {
       this.saveTodos()
-    }
-  },
-  methods: {
-    // addTodo(text) {
-    //   if (!text) {
-    //     this.$store.commit("toggleModal", true);
-    //   }
-    //   else {
-    //     const newItem = {
-    //       text,
-    //       done: false,
-    //     }
-    //     this.todos.push(newItem);
-    //   }
-    // },
-    toggleDoneTodo(idx) {
-      this.todos[idx].done = !this.todos[idx].done;
-      this.saveTodos()
-    },
-    removeTodo(idx) {
-      this.todos.splice(idx, 1);
-    },
-    clearTodos() {
-      this.todos = [];
-    },
-    saveTodos() {
-      sessionStorage.setItem('todos', JSON.stringify(this.todos));
     }
   },
   created() {

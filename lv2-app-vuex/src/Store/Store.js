@@ -26,6 +26,19 @@ export const store = new Vuex.Store({
         }
         state.todoList.push(newItem);
       }
+      this.saveTodos();
     },
+    toggleDoneTodo(s, idx) {
+      s.todoList[idx].done = !s.todoList[idx].done;
+    },
+    removeTodo(s, idx) {
+      s.todoList.splice(idx, 1);
+    },
+    clearTodos(s) {
+      s.todoList = [];
+    },
+    saveTodos(s) {
+      sessionStorage.setItem('todos', JSON.stringify(s.todoList));
+    }
   },
 });

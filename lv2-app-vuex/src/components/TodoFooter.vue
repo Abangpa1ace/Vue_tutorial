@@ -11,10 +11,10 @@
 <script>
   export default {
     name: 'TodoFooter',
-    props: {
-      clearTodos: {
-        type: Function,
-      },
+    methods: {
+      clearTodos() {
+        this.$store.commit("clearTodos")
+      }
     }
   }
 </script>
