@@ -19,14 +19,9 @@ export default {
       inputValue: "",
     }
   },
-  props: {
-    addTodo: {
-      type: Function,
-    },
-  },
   methods: {
     submitInput() {
-      this.addTodo(this.inputValue);
+      this.$store.commit("addTodo", this.inputValue)
       this.clearInput()
     },
     clearInput() {

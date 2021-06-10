@@ -1,9 +1,9 @@
 <template>
-  <div class="modal-container" :class="{ show: isModalOn }">
+  <div class="modal-container" :class="{ show: this.$store.state.isModalOn }">
     <div
       class="modal-content shadow">
       <ModalAlert></ModalAlert>
-      <span class="modal-close-btn" @click="$emit('close')">X</span>
+      <span class="modal-close-btn" @click="closeModal">X</span>
     </div>
   </div>
 </template>
@@ -13,17 +13,14 @@ import ModalAlert from './ModalAlert.vue'
 
 export default {
   name: "Modal",
-  props: {
-    isModalOn: {
-      type: Boolean,
-    },
-    closeModal: {
-      type: Function,
-    }
-  },
   components: {
     ModalAlert,
   },
+  methods: {
+    closeModal() {
+      this.$store.commit("toggleModal", false);
+    }
+  }
 }
 </script>
 

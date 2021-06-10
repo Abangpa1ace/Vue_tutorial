@@ -3,7 +3,7 @@
     <transition-group name="list" tag="ul">
       <li 
         class="shadow"
-        v-for="(todo, idx) in todos" :key="todo">
+        v-for="(todo, idx) in this.$store.state.todoList" :key="todo">
           <span
           class="checkBtn"
           :class="{ checkBtnCompleted: todo.done }"

@@ -1,15 +1,9 @@
 <template>
   <div id="App">
-    <Modal
-      :isModalOn="isModalOn"
-      @close="closeModal">
-    </Modal>
+    <Modal></Modal>
     <TodoHeader></TodoHeader>
-    <TodoInput 
-      :addTodo="addTodo">
-    </TodoInput>
-    <TodoList 
-      :todos="todos" :toggleDoneTodo="toggleDoneTodo" :removeTodo="removeTodo">
+    <TodoInput></TodoInput>
+    <TodoList :toggleDoneTodo="toggleDoneTodo" :removeTodo="removeTodo">
     </TodoList>
     <TodoFooter
       :clearTodos="clearTodos">
@@ -36,7 +30,6 @@ export default {
   data() {
     return {
       todos: [],
-      isModalOn: false,
     }
   },
   watch: {
@@ -45,21 +38,18 @@ export default {
     }
   },
   methods: {
-    closeModal() {
-      this.isModalOn = false;
-    },
-    addTodo(text) {
-      if (!text) {
-        this.isModalOn = true;
-      }
-      else {
-        const newItem = {
-          text,
-          done: false,
-        }
-        this.todos.push(newItem);
-      }
-    },
+    // addTodo(text) {
+    //   if (!text) {
+    //     this.$store.commit("toggleModal", true);
+    //   }
+    //   else {
+    //     const newItem = {
+    //       text,
+    //       done: false,
+    //     }
+    //     this.todos.push(newItem);
+    //   }
+    // },
     toggleDoneTodo(idx) {
       this.todos[idx].done = !this.todos[idx].done;
       this.saveTodos()
@@ -79,9 +69,6 @@ export default {
     if (savedTodos) {
       this.todos = JSON.parse(savedTodos);
     }
-    // if (this.$store.state.todoList) {
-    //   this.todos = this.$store.state.todoList
-    // }
   }
 }
 </script>
