@@ -79,6 +79,9 @@ export default {
     if (savedTodos) {
       this.todos = JSON.parse(savedTodos);
     }
+    // if (this.$store.state.todoList) {
+    //   this.todos = this.$store.state.todoList
+    // }
   }
 }
 </script>
