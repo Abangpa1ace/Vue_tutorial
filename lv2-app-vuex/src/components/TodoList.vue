@@ -25,14 +25,17 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   methods: {
-    toggleDoneTodo(idx) {
-      this.$store.commit("toggleDoneTodo", idx)
-    },
-    removeTodo(idx) {
-      this.$store.commit("removeTodo", idx)
-    }
+    // toggleDoneTodo(idx) {
+    //   this.$store.commit("toggleDoneTodo", idx)
+    // },
+    // removeTodo(idx) {
+    //   this.$store.commit("removeTodo", idx)
+    // }
+    ...mapMutations(['toggleDoneTodo', 'removeTodo'])
   }
 }
 </script>

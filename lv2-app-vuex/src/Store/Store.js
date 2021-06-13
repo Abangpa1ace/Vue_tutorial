@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    headerText: "To-Do List!",
+    headerText: "To-Do List!!!",
     todoList: [{ text: "1", done: false }],
     isModalOn: false,
   },

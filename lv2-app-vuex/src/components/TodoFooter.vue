@@ -9,14 +9,18 @@
 </template>
 
 <script>
-  export default {
-    name: 'TodoFooter',
-    methods: {
-      clearTodos() {
-        this.$store.commit("clearTodos")
-      }
-    }
+import { mapMutations } from 'vuex';
+
+export default {
+  name: 'TodoFooter',
+  methods: {
+    // clearTodos() {
+    //   this.$store.commit("clearTodos")
+    // }
+
+    ...mapMutations(['clearTodos'])
   }
+}
 </script>
 
 <style scoped>
