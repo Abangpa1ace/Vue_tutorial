@@ -3,8 +3,7 @@
     <Modal></Modal>
     <TodoHeader></TodoHeader>
     <TodoInput></TodoInput>
-    <TodoList :toggleDoneTodo="toggleDoneTodo" :removeTodo="removeTodo">
-    </TodoList>
+    <TodoList></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
@@ -25,22 +24,6 @@ export default {
     TodoList,
     TodoFooter,
   },
-  data() {
-    return {
-      todos: [],
-    }
-  },
-  watch: {
-    todos: function() {
-      this.saveTodos()
-    }
-  },
-  created() {
-    const savedTodos = sessionStorage.getItem('todos');
-    if (savedTodos) {
-      this.todos = JSON.parse(savedTodos);
-    }
-  }
 }
 </script>
 

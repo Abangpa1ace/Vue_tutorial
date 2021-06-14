@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -20,8 +21,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['addTodo']),
     submitInput() {
-      this.$store.commit("addTodo", this.inputValue)
+      this.addTodo(this.inputValue);
       this.clearInput()
     },
     clearInput() {
